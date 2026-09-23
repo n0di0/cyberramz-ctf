@@ -20,13 +20,9 @@ html {
 }
 
 body {
+ body {
   margin: 0;
   background: var(--black);
-  background-image:
-    linear-gradient(var(--panel-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--panel-line) 1px, transparent 1px);
-  background-size: 42px 42px;
-  background-attachment: fixed;
   color: var(--white);
   font-family: var(--mono);
   line-height: 1.55;
@@ -362,8 +358,10 @@ input:focus-visible {
   display: none;
   text-align: center;
   border: 1px solid var(--red);
-  padding: 60px 24px;
+  background: var(--panel);
+  padding: 70px 24px;
   margin-top: 10px;
+  box-shadow: 0 0 0 1px var(--black) inset;
 }
 
 #finale.show { display: block; }
