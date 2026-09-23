@@ -9,7 +9,7 @@ const ANSWERS = {
   flag1: "encryption-is-cool!",
   flag2: "secret-pages-are-tricky",
   flag3: "hidden-in-plain-sight",
-  kali1: ["nmap"],
+  kali1: ["nmap", "tulnp"],
   kali2: ["whoami"],
   kali3: ["ls -a", "ls -la", "ls -al"],
   flag4: "kali-linux-is-4-hackers",
@@ -42,7 +42,7 @@ function normalize(str) {
 function checkAnswer(input, expected) {
   const val = normalize(input);
   if (Array.isArray(expected)) {
-    return expected.some((e) => normalize(e) === val);
+    return expected.some((e) => val.includes(normalize(e)));
   }
   return normalize(expected) === val;
 }
