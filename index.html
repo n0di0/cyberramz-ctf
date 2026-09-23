@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberRamz — First Break-In</title>
+<link rel="stylesheet" href="style.css">
+<!-- staging note: don't forget to pull the /secret page before this goes public -->
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="term-bar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="path">root@cyberramz:~$ ./breakin.sh</div>
+  </div>
+
+  <header class="masthead">
+    <p class="kicker">CYBERRAMZ // WELCOME MEETING</p>
+    <h1>BREAK IN<span class="cursor"></span></h1>
+    <p class="sub">Four flags stand between you and full access. Work with your team, use whatever tools you've got, and submit each flag below as you find it.</p>
+  </header>
+
+  <div class="progress">
+    <div class="seg"></div>
+    <div class="seg"></div>
+    <div class="seg"></div>
+    <div class="seg"></div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <section class="stage" id="stage1">
+    <div class="stage-head">
+      <div class="stage-num">01</div>
+      <div class="stage-title">
+        <h2>Cipher &amp; math</h2>
+        <p>Decode it, solve it, then decode again</p>
+      </div>
+      <div class="stage-status">in progress</div>
+    </div>
+    <div class="stage-body">
+      <p class="hint">This is a Caesar cipher — every letter has been shifted the same number of places. Shift it back to read the question.</p>
+      <div class="mono-block">BMFY NX YMJ XVZFWJ WTTY TK 4096?</div>
+
+      <div class="q">
+        <label for="step1a-input">Answer the decoded question</label>
+        <div class="field-row">
+          <input type="text" id="step1a-input" placeholder="your answer" autocomplete="off">
+          <button id="step1a-submit" type="button">Check</button>
+        </div>
+        <div class="feedback" id="step1a-feedback"></div>
+      </div>
+
+      <div id="step1b-block" class="explainer">
+        <p style="margin:0"><strong>Correct — 64.</strong> Now decode this Base64 string — search "base64 decoder online" or type <code>base64 -d</code> in Kali:</p>
+        <div class="mono-block" style="margin-top:10px;margin-bottom:0">ZW5jcnlwdGlvbi1pcy1jb29sIQ==</div>
+      </div>
+
+      <div class="flag-row">
+        <label for="flag1-input" style="margin-right:2px">flag —</label>
+        <input type="text" id="flag1-input" placeholder="decoded text" autocomplete="off">
+        <button id="flag1-submit" type="button">Submit flag</button>
+      </div>
+      <div class="feedback" id="flag1-feedback"></div>
+    </div>
+  </section>
+
+  <!-- STAGE 2 -->
+  <section class="stage" id="stage2">
+    <div class="stage-head">
+      <div class="stage-num">02</div>
+      <div class="stage-title">
+        <h2>Web exploitation</h2>
+        <p>Not every page on a site is linked from the homepage</p>
+      </div>
+      <div class="stage-status">locked</div>
+    </div>
+    <div class="stage-body">
+      <p class="hint">Not every page gets linked from the homepage. Sometimes the clue is sitting in the code nobody reads.</p>
+
+      <div class="flag-row">
+        <label for="flag2-input" style="margin-right:2px">flag —</label>
+        <input type="text" id="flag2-input" placeholder="flag text" autocomplete="off">
+        <button id="flag2-submit" type="button">Submit flag</button>
+      </div>
+      <div class="feedback" id="flag2-feedback"></div>
+    </div>
+  </section>
+
+  <!-- STAGE 3 -->
+  <section class="stage" id="stage3">
+    <div class="stage-head">
+      <div class="stage-num">03</div>
+      <div class="stage-title">
+        <h2>Forensics</h2>
+        <p>What you see is never the whole file</p>
+      </div>
+      <div class="stage-status">locked</div>
+    </div>
+    <div class="stage-body">
+      <p class="hint">An image file holds more bytes than what your viewer shows you.</p>
+
+      <div class="stego-frame">
+        <img src="assets/stego.png" alt="A padlock graphic on a dark background, labeled ACCESS RESTRICTED">
+        <p class="cap"><a href="assets/stego.png" download>Download the full image</a> and open it in a text editor, or run <code>strings stego.png</code> in Kali.</p>
+      </div>
+
+      <div class="flag-row">
+        <label for="flag3-input" style="margin-right:2px">flag —</label>
+        <input type="text" id="flag3-input" placeholder="flag text" autocomplete="off">
+        <button id="flag3-submit" type="button">Submit flag</button>
+      </div>
+      <div class="feedback" id="flag3-feedback"></div>
+    </div>
+  </section>
+
+  <!-- STAGE 4 -->
+  <section class="stage" id="stage4">
+    <div class="stage-head">
+      <div class="stage-num">04</div>
+      <div class="stage-title">
+        <h2>Kali commands</h2>
+        <p>Three questions. Answer all three to reveal the flag</p>
+      </div>
+      <div class="stage-status">locked</div>
+    </div>
+    <div class="stage-body">
+
+      <div class="kali-q" id="kali1-row">
+        <div class="q">
+          <label for="kali1-input">What command shows all currently open network ports?</label>
+          <div class="field-row">
+            <input type="text" id="kali1-input" placeholder="command" autocomplete="off">
+            <button id="kali1-submit" type="button">Check</button>
+          </div>
+          <div class="feedback" id="kali1-feedback"></div>
+        </div>
+      </div>
+
+      <div class="kali-q" id="kali2-row">
+        <div class="q">
+          <label for="kali2-input">What command tells you your current username?</label>
+          <div class="field-row">
+            <input type="text" id="kali2-input" placeholder="command" autocomplete="off">
+            <button id="kali2-submit" type="button">Check</button>
+          </div>
+          <div class="feedback" id="kali2-feedback"></div>
+        </div>
+      </div>
+
+      <div class="kali-q" id="kali3-row">
+        <div class="q">
+          <label for="kali3-input">What command lets you view hidden files in a directory?</label>
+          <div class="field-row">
+            <input type="text" id="kali3-input" placeholder="command" autocomplete="off">
+            <button id="kali3-submit" type="button">Check</button>
+          </div>
+          <div class="feedback" id="kali3-feedback"></div>
+        </div>
+      </div>
+
+      <div class="reveal-flag" id="kali-flag-reveal">
+        <p class="hint" style="margin-bottom:8px">All three correct — here's your flag, right in plain sight:</p>
+        <div class="mono-block">kali-linux-is-4-hackers</div>
+        <div class="flag-row">
+          <label for="flag4-input" style="margin-right:2px">flag —</label>
+          <input type="text" id="flag4-input" placeholder="paste it in" autocomplete="off">
+          <button id="flag4-submit" type="button">Submit flag</button>
+        </div>
+        <div class="feedback" id="flag4-feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="finale">
+    <h2>ACCESS GRANTED</h2>
+    <p>You've broken in. All four flags captured — nice work. This is the same kind of thinking that shows up in real security jobs: notice what's odd, check what others skip, and keep pulling the thread.</p>
+  </div>
+
+  <footer>
+    CyberRamz &middot; <a href="#" id="reset-link" style="color:inherit">reset progress</a>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
